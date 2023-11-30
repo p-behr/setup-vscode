@@ -59,6 +59,16 @@ You can use ACS to copy your public key to IBM i.
 Open System Configurations, highlight your system, and press Edit.  
 Select the SSH Key setup tab, and press the "Copy SSH key(s) to server" button.  
 
+#### SQL
+```
+CALL QSYS2.IFS_WRITE(
+    PATH_NAME =>'/home/{{user_profile}}/.ssh/authorized_keys', 
+    LINE => 'ssh-rsa [...]== user@device', 
+    OVERWRITE => 'APPEND', 
+    END_OF_LINE => 'NONE'
+);
+```
+
 #### Other
 Use RDi, nano, or some other editor to add the public key to the authorized_keys file on the server. 
 The authorized_keys file is located here: /home/YOUR_PROFILE/.ssh  
