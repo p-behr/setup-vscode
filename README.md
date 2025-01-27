@@ -61,7 +61,7 @@ Select the SSH Key setup tab, and press the "Copy SSH key(s) to server" button.
 
 #### SQL
 ```
-CALL QSYS2.IFS_WRITE(
+CALL QSYS2.IFS_WRITE_UTF8(
     PATH_NAME =>'/home/{{user_profile}}/.ssh/authorized_keys', 
     LINE => 'ssh-rsa [...]== user@device', 
     OVERWRITE => 'APPEND', 
